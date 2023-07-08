@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="input">
+        <div>
+            <input type="text" placeholder="Enter a location">
+        </div>
+        
+        <div>
+            Air Quality (AQI)
+            <div>
+                <input type="radio" id="aqi-no" name="aqi_toggle" checked>
+                <label for="aqi-no">no</label>
+            </div>
+            <div>
+                <input type="radio" id="aqi-yes" name="aqi_toggle">
+                <label for="aqi-yes">yes</label>
+            </div>
+        </div>
+        
+        <button>Submit</button>
+    </div>
+    <div class="output">
+        <img src="./cloudy.png" alt="">
+        <div class="weather-data"></div>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
