@@ -78,7 +78,7 @@ function addTitle(title) {
     return title_child;
 }
 
-const DEFAULT_URL = 'http://api.weatherapi.com/v1/current.json';
+const DEFAULT_URL = 'https://api.weatherapi.com/v1/current.json';
 const KEY_PARAMETER = '?key=';
 const LOCATION_PARAMETER = '&q=';
 const AQI_PARAMETER = '&aqi=';
