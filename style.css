@@ -5,3 +5,8 @@ img {
     width: 100px;
     margin-top: 20px;
 }
+
+body {
+    padding-top: 10px;
+    padding-left: 20px;
+}
