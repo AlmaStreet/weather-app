@@ -22,30 +22,28 @@ function show_aqi(aqi_buttons) {
 
 function displayContent(payload, aqi_status) {
     const location_list = document.createElement('ul');
-    location_list.appendChild(addChild(`name: ${payload.location.name}`));
-    location_list.appendChild(addChild(`region: ${payload.location.region}`));
-    location_list.appendChild(addChild(`country: ${payload.location.country}`));
-    location_list.appendChild(addChild(`localtime: ${payload.location.localtime}`));
+    location_list.appendChild(addChild(`Location: ${payload.location.name}`));
+    location_list.appendChild(addChild(`Region: ${payload.location.region}`));
+    location_list.appendChild(addChild(`Country: ${payload.location.country}`));
+    location_list.appendChild(addChild(`Local Time: ${payload.location.localtime}`));
 
     const current_list = document.createElement('ul');
-    current_list.appendChild(addChild(`text: ${payload.current.condition.text}`));
-    current_list.appendChild(addChild(`temp_c: ${payload.current.temp_c} °C`));
-    current_list.appendChild(addChild(`feelslike_c: ${payload.current.feelslike_c} °C`));
-    current_list.appendChild(addChild(`temp_f: ${payload.current.temp_f} °F`));
-    current_list.appendChild(addChild(`feelslike_f: ${payload.current.feelslike_f} °F`));
-    current_list.appendChild(addChild(`uv: ${payload.current.uv}`));
-    current_list.appendChild(addChild(`humidity: ${payload.current.humidity}`));
-    current_list.appendChild(addChild(`cloud: ${payload.current.cloud}`));
-    current_list.appendChild(addChild(`wind_mph: ${payload.current.wind_mph}`));
+    current_list.appendChild(addChild(`Weather: ${payload.current.condition.text}`));
+    current_list.appendChild(addChild(`Temp: ${payload.current.temp_f}°F (${payload.current.temp_c}°C)`));
+    current_list.appendChild(addChild(`Feels Like: ${payload.current.feelslike_f}°F (${payload.current.feelslike_c}°C)`));
+    current_list.appendChild(addChild(`UV Index: ${payload.current.uv}`));
+    current_list.appendChild(addChild(`Cloud: ${payload.current.cloud}`));
+    current_list.appendChild(addChild(`Humidity: ${payload.current.humidity}`));
+    current_list.appendChild(addChild(`Wind: ${payload.current.wind_mph} mph`));
 
     const aqi_list = document.createElement('ul');
     if (aqi_status) {
-        aqi_list.appendChild(addChild(`co: ${payload.current.air_quality.co}`));
+        aqi_list.appendChild(addChild(`co: ${payload.current.air_quality.co.toFixed(2)}`));
         aqi_list.appendChild(addChild(`no2: ${payload.current.air_quality.no2}`));
         aqi_list.appendChild(addChild(`o3: ${payload.current.air_quality.o3}`));
-        aqi_list.appendChild(addChild(`so2: ${payload.current.air_quality.so2}`));
-        aqi_list.appendChild(addChild(`pm2_5: ${payload.current.air_quality.pm2_5}`));
-        aqi_list.appendChild(addChild(`pm10: ${payload.current.air_quality.pm10}`));
+        aqi_list.appendChild(addChild(`so2: ${payload.current.air_quality.so2.toFixed(2)}`));
+        aqi_list.appendChild(addChild(`pm2_5: ${payload.current.air_quality.pm2_5.toFixed(2)}`));
+        aqi_list.appendChild(addChild(`pm10: ${payload.current.air_quality.pm10.toFixed(2)}`));
         aqi_list.appendChild(addChild(`gb-defra-index: ${payload.current.air_quality['gb-defra-index']}`));
         aqi_list.appendChild(addChild(`us-epa-index: ${payload.current.air_quality['us-epa-index']}`));
     }
